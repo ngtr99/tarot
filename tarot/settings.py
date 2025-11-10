@@ -9,11 +9,17 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-import dj_database_url
-from pathlib import Path
 import os
+from pathlib import Path
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+DEBUG = os.getenv("DEBUG", "0") == "1"        # False by default
+SECRET_KEY = os.getenv("SECRET_KEY", "dev")   # set real one in Render
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -21,11 +27,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-is)@xt@2%uy4srl7in$5_9rm@h!^=w#cl6#*4%*5yqbml!+ofs'
 
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'True'
-
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,15 +129,6 @@ STATIC_URL = 'reading/static/reading/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ] 
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
-# Media files (user-uploaded / image fields)
-# Serve existing images placed in `reading/static/reading/images/` via MEDIA.
-# ImageField stores names like `images/Ace_of_Cups.jpg` so set MEDIA_ROOT to the
-# app static images folder so `ImageField.url` resolves to the correct file.
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'reading', 'static', 'reading')
 
 
 # Default primary key field type

@@ -22,7 +22,7 @@
             </div>
     
             <div class="back" style="display: none;">
-                    <img src="{{ card.tarot_card.image.url }}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
+                    <img src="{% static card.tarot_card.image.url %}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
             </div>
         </div>
         {% endfor %}

@@ -13,7 +13,7 @@
 
 <div id="card-description">
     <h2 id="card-name">{{card.tarot_card.name}}</h2>
-    <img src="{{ card.tarot_card.image.url }}" id="card-image">
+    <img src="{% static card.tarot_card.image.url %}" id="card-image">
     <p id="card-meaning">{{card.description}}</p>
 </div>
 
