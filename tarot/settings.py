@@ -25,7 +25,7 @@ CSRF_TRUSTED_ORIGINS = ["https://*.onrender.com"]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'django-insecure-is)@xt@2%uy4srl7in$5_9rm@h!^=w#cl6#*4%*5yqbml!+ofs'
+
 
 
 
@@ -125,11 +125,10 @@ USE_TZ = True
 
 STATIC_URL = 'reading/static/reading/'
 
-
+WHITENOISE_USE_FINDERS = True
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, STATIC_URL),
 ] 
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
