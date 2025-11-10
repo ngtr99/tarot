@@ -17,12 +17,12 @@
         <div class="card-item">
             <div class="front">
                 <a href="{% url 'reading' slug1=content slug2=card.tarot_card.name %}">
-                    <img src="{% static 'images/tarot.png' %}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
+                        <img src="{% static 'images/tarot.png' %}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
                 </a>                             
             </div>
     
             <div class="back" style="display: none;">
-                <img src="{% static card.tarot_card.image %}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
+                    <img src="{{ card.tarot_card.image.url }}" alt="{{ card.tarot_card.name }}" class="card" id="{{ card.description }}">
             </div>
         </div>
         {% endfor %}
